@@ -10,7 +10,7 @@ import pytest
 from machfab_cartridge_sdk.pages import parse_index_range
 
 
-def test0060_index_range_grammar():
+def test_0060_index_range_grammar():
     """TEST0060: the full grammar — singles, ranges, open ranges, comma lists,
     written order preserved, duplicates dropped on first occurrence."""
     assert parse_index_range(None, 3) == [0, 1, 2]
@@ -23,7 +23,7 @@ def test0060_index_range_grammar():
     assert parse_index_range("5,1,3,1-2", 10) == [4, 0, 2, 1]
 
 
-def test0061_index_range_clamps_past_end():
+def test_0061_index_range_clamps_past_end():
     """TEST0061: an over-long range clamps to the document instead of erroring
     (the parser this replaced hard-errored on ``1-100`` of a 10-page document)."""
     assert parse_index_range("1-100", 10) == list(range(10))
@@ -32,7 +32,7 @@ def test0061_index_range_clamps_past_end():
     # TEST0062) — clamping only widens a range that STARTS in bounds.
 
 
-def test0062_index_range_hard_errors():
+def test_0062_index_range_hard_errors():
     """TEST0062: genuinely impossible selections stay hard errors, with
     messages that name the numbers involved."""
     with pytest.raises(ValueError) as starts_past_end:

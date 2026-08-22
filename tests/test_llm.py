@@ -24,9 +24,8 @@ from machfab_cartridge_sdk.llm import (
 )
 
 
-def test0001_generation_request_round_trip():
-    """Round-trip: a generation request serializes and deserializes to
-    equivalent content."""
+def test_0001_generation_request_round_trip():
+    """TEST0001: a generation request round-trips to equivalent content."""
     request = LlmGenerationRequest.with_defaults("Hello", "model/test")
     parsed = LlmGenerationRequest.from_json(request.to_json())
 
@@ -36,8 +35,8 @@ def test0001_generation_request_round_trip():
     assert parsed.effective_request_type == REQUEST_TYPE_GENERATE
 
 
-def test0002_stream_message_token_round_trip():
-    """Round-trip: a token message serializes and deserializes to itself."""
+def test_0002_stream_message_token_round_trip():
+    """TEST0002: a token message round-trips to itself, byte for byte."""
     line = LlmStreamMessage.token("Hello").to_line()
     # The exact bytes the reference emits: compact, in field order.
     assert line == '{"type":"token","text":"Hello"}'
@@ -47,7 +46,7 @@ def test0002_stream_message_token_round_trip():
     assert parsed["text"] == "Hello"
 
 
-def test0003_stream_message_complete_round_trip():
+def test_0003_stream_message_complete_round_trip():
     """TEST0003: Stream message complete round trip."""
     message = LlmStreamMessage.complete("Generated text", 10, 5, FINISH_REASON_STOP, 100)
     parsed = LlmStreamMessage.from_line(message.to_line())
@@ -57,7 +56,7 @@ def test0003_stream_message_complete_round_trip():
     assert parsed["finish_reason"] == "stop"
 
 
-def test0004_stream_message_error_round_trip():
+def test_0004_stream_message_error_round_trip():
     """TEST0004: Stream message error round trip."""
     message = LlmStreamMessage.error("MODEL_NOT_FOUND", "Model not available")
     parsed = LlmStreamMessage.from_line(message.to_line())
@@ -67,7 +66,7 @@ def test0004_stream_message_error_round_trip():
     assert parsed["message"] == "Model not available"
 
 
-def test0005_vocab_response_round_trip():
+def test_0005_vocab_response_round_trip():
     """TEST0005: Vocab response round trip."""
     parsed = LlmVocabResponse.from_json(LlmVocabResponse.of(["a", "b", "c"]).to_json())
 
@@ -75,7 +74,7 @@ def test0005_vocab_response_round_trip():
     assert parsed.vocab_size == 3
 
 
-def test0006_model_info_round_trip():
+def test_0006_model_info_round_trip():
     """TEST0006: Model info round trip."""
     info = LlmModelInfo(model_spec="test-model", vocab_size=32000, context_length=4096)
     parsed = LlmModelInfo.from_json(info.to_json())
@@ -88,7 +87,7 @@ def test0006_model_info_round_trip():
     assert "embedding_dim" not in json.loads(info.to_json())
 
 
-def test0007_constraint_spec_tags():
+def test_0007_constraint_spec_tags():
     """TEST0007: Constraint spec tags."""
     schema = ConstraintSpec.json_schema({"type": "object"})
     assert schema.to_dict()["type"] == "json_schema"
@@ -113,7 +112,7 @@ def test0007_constraint_spec_tags():
     assert parsed.constraint.schema == {"type": "object"}
 
 
-def test0008_backend_for_model_spec_gguf():
+def test_0008_backend_for_model_spec_gguf():
     """TEST0008: Backend for model spec gguf."""
     assert backend_for_model_spec("hf:bartowski/Llama-3.2-3B-Instruct-GGUF") == BACKEND_GGUF
     assert (
@@ -123,7 +122,7 @@ def test0008_backend_for_model_spec_gguf():
     assert backend_for_model_spec("local:/path/to/model.gguf") == BACKEND_GGUF
 
 
-def test0009_backend_for_model_spec_mlx():
+def test_0009_backend_for_model_spec_mlx():
     """TEST0009: Backend for model spec mlx."""
     assert (
         backend_for_model_spec("hf:mlx-community/Mistral-7B-Instruct-v0.3-4bit")
@@ -136,7 +135,7 @@ def test0009_backend_for_model_spec_mlx():
     assert backend_for_model_spec("hf:some-model;mlx") == BACKEND_MLX
 
 
-def test0010_backend_for_model_spec_candle():
+def test_0010_backend_for_model_spec_candle():
     """TEST0010: Backend for model spec candle."""
     assert backend_for_model_spec("hf:meta-llama/Llama-3.1-8B-Instruct") == BACKEND_CANDLE
     assert backend_for_model_spec("hf:microsoft/phi-2") == BACKEND_CANDLE

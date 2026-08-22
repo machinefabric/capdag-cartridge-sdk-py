@@ -18,7 +18,7 @@ def dims_with(chat_template: str) -> RefinedDims:
     return RefinedDims(chat_template=chat_template)
 
 
-def test0011_jinja_template_yields_chat_templated():
+def test_0011_jinja_template_yields_chat_templated():
     """Jinja-template models route through ChatTemplated.
 
     Forgetting this collapses to Raw, which feeds the chat scaffolding to the
@@ -32,7 +32,7 @@ def test0011_jinja_template_yields_chat_templated():
     assert strategy.user == "Hello"
 
 
-def test0012_short_name_template_yields_chat_templated():
+def test_0012_short_name_template_yields_chat_templated():
     """``chat-template-short`` — a model naming its template by registered
     short name — must also route through chat templating; the cartridge
     resolves the short name via its backend's template registry."""
@@ -43,7 +43,7 @@ def test0012_short_name_template_yields_chat_templated():
     assert strategy.user == "Hello"
 
 
-def test0013_absent_template_yields_raw():
+def test_0013_absent_template_yields_raw():
     """**Core regression guard.** An empty ``chat_template`` means a base /
     completion model, and the cartridge must NOT chat-template the input.
 
@@ -58,7 +58,7 @@ def test0013_absent_template_yields_raw():
     assert strategy.text == "Continue this: once upon"
 
 
-def test0014_whitespace_only_system_prompt_dropped_for_chat_templated():
+def test_0014_whitespace_only_system_prompt_dropped_for_chat_templated():
     """A whitespace-only system prompt is dropped.
 
     Some templates emit a ``<|im_start|>system\\n\\n<|im_end|>`` envelope around
@@ -71,7 +71,7 @@ def test0014_whitespace_only_system_prompt_dropped_for_chat_templated():
         assert strategy.system is None, f"{blank!r} must not become a system turn"
 
 
-def test0015_unknown_chat_template_value_yields_raw():
+def test_0015_unknown_chat_template_value_yields_raw():
     """An unknown ``chat_template`` value falls to Raw.
 
     A chat-template behaviour is not invented for a tag nobody has classified:
@@ -84,7 +84,7 @@ def test0015_unknown_chat_template_value_yields_raw():
     assert strategy.text == "Hi"
 
 
-def test0016_default_system_prompt_is_task_agnostic():
+def test_0016_default_system_prompt_is_task_agnostic():
     """``DEFAULT_SYSTEM_PROMPT`` works for any input.
 
     Pinned so that tightening it — inserting task-specific instructions, say —
