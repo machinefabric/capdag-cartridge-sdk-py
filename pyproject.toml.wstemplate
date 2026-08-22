@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "machfab-cartridge-sdk"
+version = "{{ project.version }}"
+description = "Shared data contracts for MachineFabric cartridges written in Python"
+readme = "README.md"
+authors = [{name = "https://github.com/machinefabric"}]
+license = "MIT"
+requires-python = ">=3.11"
+# No runtime dependencies, deliberately. Everything here is plain data and
+# stdlib json; the cartridge RUNTIME is capdag's, and a cartridge names that
+# itself. Depending on it here would tie every release of this package to
+# capdag's availability without adding anything a cartridge author does not
+# already have.
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-timeout>=2.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test*"]

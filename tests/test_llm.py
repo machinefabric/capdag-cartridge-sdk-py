@@ -39,7 +39,8 @@ def test0001_generation_request_round_trip():
 def test0002_stream_message_token_round_trip():
     """Round-trip: a token message serializes and deserializes to itself."""
     line = LlmStreamMessage.token("Hello").to_line()
-    assert '"type": "token"' in line or '"type":"token"' in line
+    # The exact bytes the reference emits: compact, in field order.
+    assert line == '{"type":"token","text":"Hello"}'
 
     parsed = LlmStreamMessage.from_line(line)
     assert parsed.type == "token"
@@ -90,9 +91,7 @@ def test0006_model_info_round_trip():
 def test0007_constraint_spec_tags():
     """TEST0007: Constraint spec tags."""
     schema = ConstraintSpec.json_schema({"type": "object"})
-    assert json.loads(schema.to_dict()["type"] and schema.to_json_text())["type"] == (
-        "json_schema"
-    )
+    assert schema.to_dict()["type"] == "json_schema"
 
     regex = ConstraintSpec.regex(r"\d+")
     assert regex.to_dict()["type"] == "regex"
