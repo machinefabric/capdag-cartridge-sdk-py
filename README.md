@@ -83,4 +83,4 @@ numbered tests here are the reference's numbers: `test0001`–`test0010` are its
 its `pages` tests. A change to a shared wire type or a prompt decision is
 mirrored here — implementation and same-numbered tests — in the same change.
 Language-neutral runtime behavior belongs to the
-[CapDAG specification](../capdag/docs/01-overview.md).
+[CapDAG specification](../../capdag/docs/01-overview.md).
