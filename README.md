@@ -1,4 +1,4 @@
-# MachineFabric cartridge SDK for Python
+# CapDAG Cartridge SDK for Python
 
 This public Python package mirrors the Rust `capdag-cartridge-sdk`. It is for
 Python cartridge authors who need the canonical request, stream, vocabulary and
