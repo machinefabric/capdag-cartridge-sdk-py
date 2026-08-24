@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "machfab-cartridge-sdk"
+name = "capdag-cartridge-sdk"
 version = "{{ project.version }}"
 description = "Shared data contracts for MachineFabric cartridges written in Python"
 readme = "README.md"

@@ -1,7 +1,7 @@
 """LLM protocol types.
 
 Canonical Python types matching the capdag media-def schemas for LLM
-operations. The Rust ``machfab-cartridge-sdk`` is the reference; these types
+operations. The Rust ``capdag-cartridge-sdk`` is the reference; these types
 carry the same field names, the same defaults and the same wire form, because
 the wire form is the contract — a cartridge written in Python answers the same
 cap as one written in Rust, and the engine cannot tell them apart.

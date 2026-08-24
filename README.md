@@ -1,6 +1,6 @@
 # MachineFabric cartridge SDK for Python
 
-This public Python package mirrors the Rust `machfab-cartridge-sdk`. It is for
+This public Python package mirrors the Rust `capdag-cartridge-sdk`. It is for
 Python cartridge authors who need the canonical request, stream, vocabulary and
 model-information records, the media and cap URNs that carry them, the
 prompt-strategy decision, and the shared page-selection grammar.
@@ -8,7 +8,7 @@ prompt-strategy decision, and the shared page-selection grammar.
 ## Install
 
 ```bash
-pip install machfab-cartridge-sdk
+pip install capdag-cartridge-sdk
 ```
 
 The cartridge runtime itself — the bifaci host loop, cap registration, the

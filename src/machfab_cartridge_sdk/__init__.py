@@ -1,7 +1,7 @@
 """MachFab Cartridge SDK for Python.
 
 Shared data contracts for MachineFabric cartridges written in Python. The Rust
-``machfab-cartridge-sdk`` is the reference; this mirror carries the same wire
+``capdag-cartridge-sdk`` is the reference; this mirror carries the same wire
 types, the same defaults and the same decisions, because a cap answered by a
 Python cartridge must be indistinguishable on the wire from the same cap
 answered by a Rust one.
