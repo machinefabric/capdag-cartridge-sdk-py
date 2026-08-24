@@ -7,7 +7,7 @@ to reorder pages.
 
 import pytest
 
-from machfab_cartridge_sdk.pages import parse_index_range
+from capdag_cartridge_sdk.pages import parse_index_range
 
 
 def test_0060_index_range_grammar():

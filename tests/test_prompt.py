@@ -5,7 +5,7 @@ produce a running cartridge, and the wrong one produces text that reads like a
 bad model rather than like a bug.
 """
 
-from machfab_cartridge_sdk.prompt import (
+from capdag_cartridge_sdk.prompt import (
     DEFAULT_SYSTEM_PROMPT,
     ChatTemplated,
     Raw,

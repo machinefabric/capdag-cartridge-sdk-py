@@ -20,9 +20,9 @@ declares no dependency on capdag, so a release of one never waits on the other.
 
 | Module | Contract |
 | --- | --- |
-| `machfab_cartridge_sdk.llm` | LLM request, stream, vocabulary and model-information records, media URNs, cap URNs, and `backend_for_model_spec` classification. |
-| `machfab_cartridge_sdk.prompt` | Prompt-strategy classification and the shared default system prompt. |
-| `machfab_cartridge_sdk.pages` | One-based page/index selection with ordered, deduplicated, clamped ranges. |
+| `capdag_cartridge_sdk.llm` | LLM request, stream, vocabulary and model-information records, media URNs, cap URNs, and `backend_for_model_spec` classification. |
+| `capdag_cartridge_sdk.prompt` | Prompt-strategy classification and the shared default system prompt. |
+| `capdag_cartridge_sdk.pages` | One-based page/index selection with ordered, deduplicated, clamped ranges. |
 
 The reference also ships `net_retry` (a retry policy written directly on
 reqwest's types) and `structured_queries` (a Tera-rendered query registry).
@@ -33,7 +33,7 @@ runtime rather than at import.
 ## Usage
 
 ```python
-from machfab_cartridge_sdk.llm import (
+from capdag_cartridge_sdk.llm import (
     BACKEND_GGUF,
     CAP_LLM_INFERENCE_GGUF,
     LlmGenerationRequest,
@@ -53,7 +53,7 @@ if backend_for_model_spec(request.model_spec) == BACKEND_GGUF:
 Preparing a prompt for whichever model was downloaded:
 
 ```python
-from machfab_cartridge_sdk.prompt import (
+from capdag_cartridge_sdk.prompt import (
     DEFAULT_SYSTEM_PROMPT,
     ChatTemplated,
     RefinedDims,

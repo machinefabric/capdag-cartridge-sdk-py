@@ -8,7 +8,7 @@ every assertion is made against the wire form rather than against the object.
 
 import json
 
-from machfab_cartridge_sdk.llm import (
+from capdag_cartridge_sdk.llm import (
     BACKEND_CANDLE,
     BACKEND_GGUF,
     BACKEND_MLX,

@@ -8,12 +8,12 @@ answered by a Rust one.
 
 Modules:
 
-- :mod:`machfab_cartridge_sdk.llm` — the LLM request, stream, vocabulary and
+- :mod:`capdag_cartridge_sdk.llm` — the LLM request, stream, vocabulary and
   model-information records, their media URNs, the cap URNs that carry them,
   and model-spec → backend classification.
-- :mod:`machfab_cartridge_sdk.prompt` — prompt-strategy classification and the
+- :mod:`capdag_cartridge_sdk.prompt` — prompt-strategy classification and the
   shared default system prompt.
-- :mod:`machfab_cartridge_sdk.pages` — the 1-based page/index selection
+- :mod:`capdag_cartridge_sdk.pages` — the 1-based page/index selection
   grammar, ordered, deduplicated and clamped.
 
 # What this mirror does NOT carry
