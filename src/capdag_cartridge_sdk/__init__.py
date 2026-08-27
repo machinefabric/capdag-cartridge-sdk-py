@@ -1,4 +1,4 @@
-"""MachFab Cartridge SDK for Python.
+"""CapDAG Cartridge SDK for Python.
 
 Shared data contracts for CapDAG cartridges written in Python. The Rust
 ``capdag-cartridge-sdk`` is the reference; this mirror carries the same wire
