@@ -77,7 +77,7 @@ else:
 PYTHONPATH=src python -m pytest tests/ -q
 ```
 
-The Rust SDK is authoritative for MachineFabric-specific wire types, and the
+The Rust SDK is authoritative for CapDAG-specific wire types, and the
 numbered tests here are the reference's numbers: `test0001`–`test0010` are its
 `llm` tests, `test0011`–`test0016` its `prompt` tests, and `test0060`–`test0062`
 its `pages` tests. A change to a shared wire type or a prompt decision is
