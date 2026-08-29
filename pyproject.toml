@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "capdag-cartridge-sdk"
-version = "1.19.7"
+version = "1.20.9"
 description = "Shared data contracts for CapDAG cartridges written in Python"
 readme = "README.md"
 authors = [{name = "https://github.com/machinefabric"}]
