@@ -1,6 +1,6 @@
 # Test catalogue — capdag-cartridge-sdk-py
 
-Generated from the catalogue table by `sdx catalog export`. Edit the tests, not this file.
+Generated from the test catalogue. Edit the tests, not this file.
 
 19 tests: 19 numbered, 0 unnumbered.
 
